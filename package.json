@@ -1,0 +1,38 @@
+{
+    "name": "vsc-pexiplogs-extension",
+    "version": "0.0.2",
+    "publisher": "pexip-support",
+    "engines": {
+        "vscode": "^1.59.0"
+    },
+    "displayName": "Pexip Log Syntax",
+    "description": "A VSC extension for highlighting Pexip logs",
+    "categories": [
+        "Other"
+    ],
+    "icon": "images/pexip.jpg",
+    "keywords":[
+        "pexip",
+        "infinity",
+        "pexip infinity",
+        "CVI"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "pexip",
+            "aliases": ["Pexip Logs", "pexip"],
+            "extensions": [".log"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "pexip",
+            "scopeName": "source.pexip",
+            "path": "./syntaxes/pexip.tmLanguage.json"
+        }]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/darrengoulden/vsc-pexiplogs-extension.git"
+      },
+      "homepage": "https://github.com/darrengoulden/vsc-pexiplogs-extension/blob/master/README.md"
+}
