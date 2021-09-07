@@ -1,7 +1,7 @@
 # Pexip Log Syntax  
 
 VSCode extension for Pexip log syntax highlighting.  
-Tested with the Dark+ VSC theme.  
+Tested with the `Dark+` VSC theme.  
 
 ## Install  
 
