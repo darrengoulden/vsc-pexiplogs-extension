@@ -10,6 +10,24 @@
 		},
 		{
 			"include": "#logreader"
+		},
+		{
+			"include": "#generic"
+		},
+		{
+			"include": "#administrator"
+		},
+		{
+			"include": "#support"
+		},
+		{
+			"include": "#syslog"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
 		}
 	],
 	"repository": {
@@ -336,8 +354,8 @@
 					}
 				},
 				{
-					"name": "string.pexip.logreader.stable.call.quality",
-					"begin": "\\*\\*\\s(Stable\\scall\\squality\\schanged:)\\sWas",
+					"name": "support.function.pexip.logreader.stable.call.quality",
+					"begin": "Stable\\scall\\squality\\schanged:\\sWas",
 					"end": "$",
 					"patterns": [
 						{
@@ -379,62 +397,65 @@
 					]
 				},
 				{
-					"name": "string.logreader.new.mode.activated",
-					"match": "\\*\\*\\s(New mode activated: Stream)\\s(\\d{1,2})\\s(\\()(.*?)(\\))",
+					"name": "keyword.operator.pexip.logreader.new.mode.activated",
+					"match": "(\\*\\*)(\\sNew\\smode\\sactivated\\:\\sStream\\s)(\\d{1,2})\\s\\((.+?)\\)\\,\\s(\\[)?(.+?)\\s(\\((\\d{1,3})\\))?.*(pt\\:\\d{1,3})",
 					"captures": {
-						"1": {
+						"2": {
 							"name": "string.pexip.logreader.new.mode.activated"
 						},
-						"2": {
-							"name": "keyword.control.pexip.logreader.new.mode.activated"
-						},
 						"3": {
 							"name": "entity.name.type.pexip.logreader.new.mode.activated"
 						},
 						"4": {
-							"name": "keyword.control.pexip.logreader.new.mode.activated"
+							"name": "entity.name.type.pexip.logreader.new.mode.activated"
 						},
-						"5": {
+						"6": {
+							"name": "entity.name.type.pexip.logreader.new.mode.activated"
+						},
+						"9": {
 							"name": "entity.name.type.pexip.logreader.new.mode.activated"
 						}
 					}
 				},
 				{
-					"name": "entity.name.type.pexip.logreader.ice.pair.selected",
-					"match": "\\*\\*\\s(ICE new-selected-pair event: Stream)\\s(\\d{1,2})\\s(\\()(.*?)(\\))",
+					"name": "keyword.operator.pexip.logreader.ice.pair.selected",
+					"match": "\\*\\*\\s(ICE\\snew-selected-pair\\sevent:\\sStream)\\s(\\d{1,2})\\s(\\()(.*?)(\\))\\,\\sComponent\\s(.+?)$",
 					"captures": {
 						"1": {
-							"name": "keyword.control.pexip.logreader.ice.pair.selected"
+							"name": "string.pexip.logreader.ice.pair.selected"
 						},
 						"2": {
 							"name": "entity.name.type.pexip.logreader.ice.pair.selected"
-						},
-						"3": {
-							"name": "keyword.control.pexip.logreader.ice.pair.selected"
 						},
 						"4": {
 							"name": "entity.name.type.pexip.logreader.ice.pair.selected"
 						},
-						"5": {
-							"name": "keyword.control.pexip.logreader.ice.pair.selected"
+						"6": {
+							"name": "entity.name.type.pexip.logreader.ice.pair.selected"
 						}
 					}
 				},
 				{
-					"name": "entity.other.inherited-class.pexip.logreader.latching",
-					"match": "\\*\\*\\s(Setting remote candidates due to latching:)\\s(.*?)\\s\\d",
+					"name": "keyword.operator.pexip.logreader.latching",
+					"match": "\\*\\*\\s(Setting\\sremote\\scandidates\\sdue\\sto\\slatching:\\sStream\\s)(\\d{1,3})\\s\\((.*?)\\)\\,\\sComponent\\s(.*?)\\,\\s.*$",
 					"captures": {
 						"1": {
 							"name": "entity.name.function.pexip.logreader.latching"
 						},
 						"2": {
-							"name": "entity.name.function.pexip.logreader.latching"
+							"name": "entity.name.type.pexip.logreader.latching"
+						},
+						"3": {
+							"name": "entity.name.type.pexip.logreader.latching"
+						},
+						"4": {
+							"name": "entity.name.type.pexip.logreader.latching"
 						}
 					}
 				},
 				{
 					"name": "string.regexp.pexip.logreader.connection.lost",
-					"match": "\\*\\*\\s(TCP|TLS)\\sConnection\\sLost:\\s(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\:\\d{1,5})\\s<->\\s(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\:\\d{1,5})",
+					"match": "\\*\\*\\s(TCP|TLS)\\sConnection\\sLost:\\s(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\:\\d{1,5})\\s<->\\s(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\:\\d{1,5})$",
 					"captures": {
 						"2": {
 							"name": "constant.numeric.pexip.logreader.connection.lost"
@@ -446,49 +467,22 @@
 				},
 				{
 					"name": "string.regexp.pexip.logreader.transport.failure",
-					"match": "\\*\\*\\s(SIP Transport Failure towards)\\s(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\:\\d{1,5})\\s\\[(TCP|TLS)\\]\\s(\\()(.*?)(\\))",
+					"match": "\\*\\*\\s(SIP Transport Failure towards)\\s(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\:\\d{1,5})\\s\\[(TCP|TLS)\\]($|\\s(\\()(.*?)(\\)$))",
 					"captures": {
 						"2": {
 							"name": "constant.numeric.pexip.logreader.transport.failure"
 						},
 						"3": {
 							"name": "constant.numeric.pexip.logreader.transport.failure"
+						},
+						"6": {
+							"name": "constant.numeric.pexip.logreader.transport.failure"
 						}
 					}
 				},
 				{
-					"name": "entity.other.attribute-name.pexip.logreader.teams.vsr.rx",
-					"match": "\\*\\*\\s(Received VSR:)\\s(Stream|Presentation)\\s(\\d{1,2})?",
-					"captures": {
-						"1": {
-							"name": "constant.numeric.pexip.logreader.teams.vsr.rx"
-						},
-						"2": {
-							"name": "constant.numeric.pexip.logreader.teams.vsr.rx"
-						},
-						"3": {
-							"name": "entity.other.attribute-name.pexip.logreader.teams.vsr.rx"
-						}
-					}
-				},
-				{
-					"name": "entity.other.attribute-name.pexip.logreader.teams.vsr.tx",
-					"match": "\\*\\*\\s(Sent VSR:)\\s(Stream|Presentation)\\s(\\d{1,2})?",
-					"captures": {
-						"1": {
-							"name": "constant.numeric.pexip.logreader.teams.vsr.tx"
-						},
-						"2": {
-							"name": "constant.numeric.pexip.logreader.teams.vsr.tx"
-						},
-						"3": {
-							"name": "entity.other.attribute-name.pexip.logreader.teams.vsr.tx"
-						}
-					}
-				},
-				{
-					"name": "entity.other.attribute-name.pexip.logreader.teams.roster",
-					"match": "ROSTER\\s\\((.*?)\\)",
+					"name": "constant.language.pexip.logreader.teams.roster",
+					"match": "ROSTER\\s\\((.*?)\\)$",
 					"captures": {
 						"1": {
 							"name": "constant.numeric.pexip.logreader.teams.roster"
@@ -496,29 +490,29 @@
 					}
 				},
 				{
-					"name": "string.pexip.logreader.resume.stream",
-					"match": "\\*\\*\\s(Resumed receiving incoming (audio|video|presentation))\\s(\\()(Stream\\s\\d{1,2})(\\))",
+					"name": "keyword.operator.pexip.logreader.resume.stream",
+					"match": "\\*\\*\\s(Resumed\\sreceiving\\sincoming\\s(audio|video|presentation))\\s(\\()((Stream)\\s(\\d{1,2}))(\\)$)",
 					"captures": {
 						"1": {
-							"name": "entity.name.type.pexip.logreader.resume.stream"
-						},
-						"2": {
-							"name": "entity.name.type.pexip.logreader.resume.stream"
+							"name": "comment.line.pexip.logreader.resume.stream"
 						},
 						"3": {
-							"name": "string.pexip.logreader.resume.stream"
-						},
-						"4": {
-							"name": "entity.name.type.pexip.logreader.resume.stream"
+							"name": "keyword.operator.pexip.logreader.resume.stream"
 						},
 						"5": {
-							"name": "string.pexip.logreader.resume.stream"
+							"name": "comment.line.pexip.logreader.resume.stream"
+						},
+						"6": {
+							"name": "entity.name.type.pexip.logreader.resume.stream"
+						},
+						"7": {
+							"name": "keyword.operator.pexip.logreader.resume.stream"
 						}
 					}
 				},
 				{
-					"name": "string.pexip.logreader.lost.stream",
-					"match": "\\*\\*\\s(Lost incoming (audio|video|presentation): Stream)\\s(\\d{1,2})",
+					"name": "keyword.operator.pexip.logreader.lost.stream",
+					"match": "\\*\\*\\s(Lost\\sincoming\\s(audio|video|presentation):\\sStream)\\s(\\d{1,2})$",
 					"captures": {
 						"1": {
 							"name": "string.regexp.pexip.logreader.lost.stream"
@@ -527,17 +521,218 @@
 							"name": "string.regexp.pexip.logreader.lost.stream"
 						},
 						"3": {
+							"name": "entity.name.type.pexip.logreader.lost.stream"
+						}
+					}
+				},
+				{
+					"name": "keyword.operator.pexip.logreader.stats.reset",
+					"match": "\\*\\*\\s(Statistics\\sabout\\sto\\sreset)$",
+					"captures": {
+						"1": {
 							"name": "string.pexip.logreader.lost.stream"
 						}
 					}
 				},
 				{
-					"name": "string.pexip.logreader.stats.reset",
-					"match": "\\*\\* Statistics about to reset"
+					"name": "entity.name.tag.pexip.logreader.m-lines",
+					"begin": "(\\s(m|b)\\=)",
+					"end": "$",
+					"beginCaptures": {
+						"2": {
+							"name": "entity.name.tag.pexip.logreader.m-lines"
+						}
+					},
+					"patterns": [
+						{
+							"begin": "(AS)\\:(\\d{1,5})",
+							"beginCaptures": {
+								"1": {
+									"name": "entity.name.tag.pexip.logreader.m-lines"
+								},
+								"2": {
+									"name": "entity.other.inherited-class.pexip.logreader.m-lines"
+								}
+							},
+							"end": "\\;|\\s"
+						},
+						{
+							"begin": "(audio)\\s(\\d{1,5})(\\s(\\()(.*?)(\\)))?",
+							"beginCaptures": {
+								"1": {
+									"name": "entity.name.tag.pexip.logreader.m-lines"
+								},
+								"2": {
+									"name": "entity.other.inherited-class.pexip.logreader.m-lines"
+								},
+								"4": {
+									"name": "keyword.operator.pexip.logreader.m-lines"
+								},
+								"5": {
+									"name": "entity.other.inherited-class.pexip.logreader.m-lines"
+								},
+								"6": {
+									"name": "keyword.operator.pexip.logreader.m-lines"
+								}
+							},
+							"end": "\\;|\\s"
+						},
+						{
+							"begin": "(video)\\s(\\d{1,5})(\\s(\\()(.*?)(\\)))?",
+							"beginCaptures": {
+								"1": {
+									"name": "entity.name.tag.pexip.logreader.m-lines"
+								},
+								"2": {
+									"name": "entity.other.inherited-class.pexip.logreader.m-lines"
+								},
+								"4": {
+									"name": "keyword.operator.pexip.logreader.m-lines"
+								},
+								"5": {
+									"name": "entity.other.inherited-class.pexip.logreader.m-lines"
+								},
+								"6": {
+									"name": "keyword.operator.pexip.logreader.m-lines"
+								}
+							},
+							"end": "\\;|\\s"
+						},
+						{
+							"begin": "(application)\\s(\\d{1,5})(\\s(\\()(.*?)(\\))|(\\s\\[|$|\\;))",
+							"beginCaptures": {
+								"1": {
+									"name": "entity.name.tag.pexip.logreader.m-lines"
+								},
+								"2": {
+									"name": "entity.other.inherited-class.pexip.logreader.m-lines"
+								},
+								"4": {
+									"name": "keyword.operator.pexip.logreader.m-lines"
+								},
+								"5": {
+									"name": "entity.other.inherited-class.pexip.logreader.m-lines"
+								},
+								"6": {
+									"name": "keyword.operator.pexip.logreader.m-lines"
+								}
+							},
+							"end": "\\;|\\s"
+						},
+						{
+							"begin": "(\\[Crypto\\:\\s)(True)(\\])",
+							"beginCaptures": {
+								"1": {
+									"name": "keyword.operator.pexip.logreader.m-lines"
+								},
+								"2": {
+									"name": "entity.other.inherited-class.pexip.logreader.m-lines"
+								},
+								"3": {
+									"name": "keyword.operator.pexip.logreader.m-lines"
+								}
+							},
+							"end": "\\;|\\s"
+						},
+						{
+							"begin": "(\\[Crypto\\:\\s)(False)(\\])",
+							"beginCaptures": {
+								"1": {
+									"name": "keyword.operator.pexip.logreader.m-lines"
+								},
+								"2": {
+									"name": "string.regexp.pexip.logreader.m-lines"
+								},
+								"3": {
+									"name": "keyword.operator.pexip.logreader.m-lines"
+								}
+							},
+							"end": "\\;|\\s"
+						},
+						{
+							"begin": "(\\[)(recvonly|sendonly)(\\])",
+							"beginCaptures": {
+								"1": {
+									"name": "keyword.operator.pexip.logreader.m-lines"
+								},
+								"2": {
+									"name": "entity.other.inherited-class.pexip.logreader.m-lines"
+								},
+								"3": {
+									"name": "keyword.operator.pexip.logreader.m-lines"
+								}
+							},
+							"end": "\\;|\\s"
+						}
+					]
+				},
+				{
+					"name": "string.regexp.pexip.logreader.forbidden",
+					"match": "403\\sForbidden"
+				},
+				{
+					"name": "string.regexp.pexip.logreader.service.not.found",
+					"match": "404\\sNeither\\sconference\\snor\\sgateway\\sfound"
+				},
+				{
+					"name": "string.regexp.pexip.logreader.too.many.attempts",
+					"match": "404\\sToo\\smany\\sattempts\\sto\\sjoin\\snon-existent\\saliases"
+				},
+				{
+					"name": "string.regexp.pexip.logreader.attempt.rejected",
+					"match": "404\\sSuspicious\\sjoin\\sattempt\\srejected"
+				},
+				{
+					"name": "string.regexp.pexip.logreader.call.rejected",
+					"match": "480\\sCall\\srejected"
+				},
+				{
+					"name": "string.regexp.pexip.logreader.call.not.exist",
+					"match": "481\\sCall/Transaction\\sDoes\\sNot\\sExist"
 				},
 				{
 					"name": "string.regexp.pexip.logreader.loop.detected",
-					"match": "482 Loop Detected"
+					"match": "482\\sLoop\\sDetected"
+				},
+				{
+					"name": "string.regexp.pexip.logreader.request.pending",
+					"match": "491\\sRequest\\sPending"
+				}
+			]
+		},
+		"generic": {
+			"patterns": [
+				{
+					"name": "entity.name.tag.pexip.logs.timestamp.and.node",
+					"match": "^\\d{4}-\\d{2}-\\d{2}T(.+?)\\+.+?\\s(.+?)\\s",
+					"captures": {
+						"1": {
+							"name": "string.pexip.logs.timestamp.and.node"
+						},
+						"2": {
+							"name": "string.pexip.logs.timestamp.and.node"
+						}
+					}
+				},
+				{
+					"name": "entity.name.tag.pexip.logs.timestamp.and.node",
+					"match": "^\\d{4}-\\d{2}-\\d{2}\\s(\\d{2}:\\d{2}:\\d{2}\\.\\d{4})Z\\s",
+					"captures": {
+						"1": {
+							"name": "string.pexip.logs.timestamp.and.node"
+						},
+						"2": {
+							"name": "string.pexip.logs.timestamp.and.node"
+						}
+					}
+				},
+				{
+					"name": "string.regexp.pexip.logs.error",
+					"match": "Level=\"WARNING\""
+				},
+				{
+					"name": "invalid.illegal.pexip.logs.error",
+					"match": "Level=\"(CRITICAL|ERROR)\""
 				}
 			]
 		},
@@ -592,47 +787,25 @@
 								}
 							},
 							"end": "\\s|$"
+						},
+						{
+							"begin": "(Reason=\")(.*?)(\")",
+							"beginCaptures": {
+								"1": {
+									"name": "entity.name.type.pexip.administrator.conference.call-id"
+								},
+								"2": {
+									"name": "keyword.control.pexip.administrator.conference.call-id"
+								},
+								"3": {
+									"name": "entity.name.type.pexip.administrator.conference.call-id"
+								}
+							},
+							"end": "\\s|$"
 						}
 					]
 				},
 				{
-					"name": "constant.other.pexip.administrator.system.connectivity",
-					"begin": "administrator\\.system\\.connectivity",
-					"end": "$",
-					"patterns": [
-						{
-							"begin": "(Message=\")(.*?)(\")",
-							"beginCaptures": {
-								"1": {
-									"name": "entity.name.tag.pexip.administrator.system.connectivity.message"
-								},
-								"2": {
-									"name": "string.pexip.administrator.system.connectivity.message"
-								},
-								"3": {
-									"name": "entity.name.tag.pexip.administrator.system.connectivity.message"
-								}
-							},
-							"end": "\\s|$"
-						},
-						{
-							"begin": "(Path=\")(.*?)(\")",
-							"beginCaptures": {
-								"1": {
-									"name": "variable.parameter.regexp.pexip.administrator.system.connectivity.path"
-								},
-								"2": {
-									"name": "support.function.regexp.pexip.administrator.system.connectivity.path"
-								},
-								"3": {
-									"name": "variable.parameter.pexip.administrator.system.connectivity.path"
-								}
-							},
-							"end": "\\s|$"
-						}
-					]
-				},
-								{
 					"name": "constant.other.pexip.administrator.system.connectivity",
 					"begin": "administrator\\.system\\.connectivity",
 					"end": "$",
@@ -674,7 +847,7 @@
 		"support": {
 			"patterns": [
 				{
-					"name": "constant.other.pexip.support.pule",
+					"name": "constant.other.pexip.support.pulse",
 					"begin": "support\\.pulse",
 					"end": "$",
 					"patterns": [
@@ -682,13 +855,13 @@
 							"begin": "(Message=\")(.*?)(\")",
 							"beginCaptures": {
 								"1": {
-									"name": "entity.name.tag.pexip.administrator.conference.message"
+									"name": "entity.name.tag.pexip.support.pulse"
 								},
 								"2": {
-									"name": "string.pexip.administrator.conference.message"
+									"name": "string.pexip.support.pulse"
 								},
 								"3": {
-									"name": "entity.name.tag.pexip.administrator.conference.message"
+									"name": "entity.name.tag.pexip.support.pulse"
 								}
 							},
 							"end": "\\s|$"
@@ -697,13 +870,13 @@
 							"begin": "(Duration=\")(.*?)(\")",
 							"beginCaptures": {
 								"1": {
-									"name": "variable.parameter.regexp.pexip.administrator.conference.call-id"
+									"name": "variable.parameter.regexp.pexip.support.pulse"
 								},
 								"2": {
-									"name": "support.function.regexp.pexip.administrator.conference.call-id"
+									"name": "support.function.regexp.pexip.support.pulse"
 								},
 								"3": {
-									"name": "variable.parameter.pexip.administrator.conference.call-id"
+									"name": "variable.parameter.pexip.support.pulse"
 								}
 							},
 							"end": "\\s|$"
@@ -712,13 +885,67 @@
 							"begin": "(Last-frozen=\")(.*?)(\")",
 							"beginCaptures": {
 								"1": {
-									"name": "keyword.control.pexip.administrator.conference.call-id"
+									"name": "keyword.control.pexip.support.pulse"
 								},
 								"2": {
-									"name": "entity.name.type.pexip.administrator.conference.call-id"
+									"name": "entity.name.type.pexip.support.pulse"
 								},
 								"3": {
-									"name": "keyword.control.pexip.administrator.conference.call-id"
+									"name": "keyword.control.pexip.support.pulse"
+								}
+							},
+							"end": "\\s|$"
+						}
+					]
+				},
+				{
+					"name": "constant.other.pexip.support.sip",
+					"begin": "support\\.sip",
+					"end": "$",
+					"patterns": [
+						{
+							"begin": "(Message=\")(.*?)(\")",
+							"beginCaptures": {
+								"1": {
+									"name": "entity.name.tag.pexip.support.sip"
+								},
+								"2": {
+									"name": "string.pexip.support.sip"
+								},
+								"3": {
+									"name": "entity.name.tag.pexip.support.sip"
+								}
+							},
+							"end": "\\s|$"
+						},
+						{
+							"begin": "(m=\\w+)\\s(\\d+)(\\s|\\;)",
+							"beginCaptures": {
+								"1": {
+									"name": "entity.name.tag.pexip.support.sip"
+								},
+								"2": {
+									"name": "entity.other.inherited-class..pexip.support.sip"
+								}
+							},
+							"end": "\\s|$"
+						}
+					]
+				}
+			]
+		},
+		"syslog": {
+			"patterns": [
+				{
+					"name": "constant.other.pexip.puppet-agent",
+					"begin": "puppet-agent",
+					"end": "$",
+					"patterns": [
+						{
+							"begin": "(Could\\snot\\srequest\\scertificate\\:\\sThe\\scertificate\\sretrieved\\sfrom\\sthe master\\sdoes\\snot\\smatch\\sthe\\sagent\\'s\\sprivate\\skey.)",
+							"beginCaptures": {
+								"1": {
+									"name": "string.regexp.pexip.puppet-agent"
 								}
 							},
 							"end": "\\s|$"
@@ -729,30 +956,6 @@
 		},
 		"keywords": {
 			"patterns": [
-				{
-					"name": "entity.name.tag.pexip.logs.timestamp.and.node",
-					"match": "\\d{4}-\\d{2}-\\d{2}T(.+?)\\+.+?\\s(.+?)\\s",
-					"captures": {
-						"1": {
-							"name": "string.pexip.logs.timestamp.and.node"
-						},
-						"2": {
-							"name": "string.pexip.logs.timestamp.and.node"
-						}
-					}
-				},
-				{
-					"name": "keyword.control.pexip.logs.timestamp.and.node",
-					"match": "\\d{4}-\\d{2}-\\d{2}\\s(\\d{2}:\\d{2}:\\d{2}\\.\\d{4})Z",
-					"captures": {
-						"1": {
-							"name": "string.pexip.logs.timestamp.and.node"
-						},
-						"2": {
-							"name": "string.pexip.logs.timestamp.and.node"
-						}
-					}
-				},
 				{
 					"name": "entity.name.tag.pexip.logs.regular.m-lines",
 					"match": "m=\\w+\\s(\\d+)(\\s|\\;)",
@@ -768,21 +971,6 @@
 					"captures": {
 						"1": {
 							"name": "keyword.control.pexip.logs.callid.user.agent"
-						}
-					}
-				},
-				{
-					"name": "constant.language.pexip.logs.call.timings",
-					"match": "Start:\\s(\\d{4}-\\d{2}-\\d{2}\\s(.+?),(.+?))\\s\/\\sEnd:\\s(\\d{4}-\\d{2}-\\d{2}\\s(.+?),(\\d{3}))\\s\/\\sDuration:\\s(\\d{1,2}:\\d{1,2}:\\d{1,2}\\.\\d{1,6})",
-					"captures": {
-						"1": {
-							"name": "entity.other.inherited-class.pexip.logs.call.timings"
-						},
-						"4": {
-							"name": "entity.other.inherited-class.pexip.logs.call.timings"
-						},
-						"7": {
-							"name": "entity.other.inherited-class.pexip.logs.call.timings"
 						}
 					}
 				},
@@ -819,18 +1007,6 @@
 						},
 						"2": {
 							"name": "storage.type.pexip.logs.cseq.non-invite"
-						}
-					}
-				},
-				{
-					"name": "entity.name.type.pexip.logs.to.from-addresses.and.ports",
-					"match": "(Src-address|Dst-address|Src-port|Dst-port|Local-address|Local-port|Remote-address|Remote-port)=\"(.+?)\"",
-					"captures": {
-						"1": {
-							"name": "entity.name.type.pexip.logs.to.from-addresses.and.ports"
-						},
-						"2": {
-							"name": "string.pexip.logs.to.from-addresses.and.ports"
 						}
 					}
 				},
@@ -952,28 +1128,8 @@
 					"match": "Outgoing call requested"
 				},
 				{
-					"name": "string.pexip.logs.zeroed.m.lines",
-					"match": "m=\\w+\\s0\\s.+"
-				},
-				{
-					"name": "string.pexip.logs.invite.ack.request",
-					"match": "^[A-Z]+.+sip:.+SIP/2\\.0"
-				},
-				{
 					"name": "string.pexip.logs.policy.request",
 					"match": "/policy/v1/.+/"
-				},
-				{
-					"name": "string.pexip.logs.sip.responses",
-					"match": "^(SIP/2\\.0|ACK\\ssip:).+"
-				},
-				{
-					"name": "string.pexip.logs.standard.headers",
-					"match": "(Record-Route|Via|From|To|Max-Forwards):"
-				},
-				{
-					"name": "invalid.illegal.pexip.logs.error",
-					"match": "Level=\"(CRITICAL|ERROR|WARNING)\""
 				},
 				{
 					"name": "invalid.illegal.pexip.logs.error",
@@ -1002,6 +1158,18 @@
 				{
 					"name": "string.pexip.logs.service.not.found",
 					"match": "404 Neither conference nor gateway found"
+				},
+				{
+					"name": "string.pexip.logs.invite.ack.request",
+					"match": "^[A-Z]+.+sip:.+SIP/2\\.0"
+				},
+				{
+					"name": "string.pexip.logs.sip.responses",
+					"match": "^(SIP/2\\.0|ACK\\ssip:).+"
+				},
+				{
+					"name": "string.pexip.logs.standard.headers",
+					"match": "(Record-Route|Via|From|To|Max-Forwards):"
 				}
 			]
 		}
