@@ -19,8 +19,8 @@ Update `settings.json`
  
 Install the extension 
 
-1. Select View > Extensions
-2. Select the three dots on top of the Extensions menu > Install from VSIX...  
+1. Using the Install from VSIX command in the Extensions view command dropdown
+2. or the `Extensions: Install from VSIX` command in the Command Palette (⇧⌘P or Ctrl+Shift+P), point to the .vsix file.
 
 ## Config adjustments  
 
