@@ -19,6 +19,7 @@ Update `settings.json`
  
 Install the extension 
 
+Grab the latest release from the [releases](https://github.com/darrengoulden/vsc-pexiplogs-extension/releases) section then;
 1. Using the Install from VSIX command in the Extensions view command dropdown
 2. or the `Extensions: Install from VSIX` command in the Command Palette (⇧⌘P or Ctrl+Shift+P), point to the .vsix file.
 
