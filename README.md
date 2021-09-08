@@ -13,7 +13,7 @@ Update `settings.json`
 
 ```
 "files.associations": {
-	"**/var/log/*.log*": "pexip"
+	"**/diagnostic_snapshot_*/log/*.log*": "pexip"
 }
 ```
  
@@ -21,41 +21,7 @@ Install the extension
 
 Grab the latest VSIX from the [releases](https://github.com/darrengoulden/vsc-pexiplogs-extension/releases) section then in VSCode;
 1. Using the Install from VSIX command in the Extensions view command dropdown
-2. or the `Extensions: Install from VSIX` command in the Command Palette (⇧⌘P or Ctrl+Shift+P), point to the `.VSIX` file.
-
-## Config adjustments  
-
-All configured patterns are enabled by default, if you want to add or remove one you can edit the `syntaxes/pexip.tmLanguage.json` file in the extension folder which is located in one of the below depending on your platform. 
- - Windows `%USERPROFILE%\.vscode\extensions`
- - macOS `~/.vscode/extensions`
- - Linux `~/.vscode/extensions` 
-
-For example, to remove `#dbsummary` includes, simply remove it from the patterns array whilst retaining the structure. 
-
-Before;  
-
-```
- 	"patterns": [
-		{
-			"include": "#dbsummary"
-		},
-		{
-			"include": "#mjxsummary"
-		},
-		...
-	],
-```  
-
-After;  
-
-```
- 	"patterns": [
-		{
-			"include": "#mjxsummary"
-		},
-		...
-	],
-```  
+2. or the `Extensions: Install from VSIX` command in the Command Palette (⇧⌘P or Ctrl+Shift+P), point to the `.VSIX` file.  
 
 ## Release Notes  
 
