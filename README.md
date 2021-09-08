@@ -14,7 +14,7 @@ Update `settings.json`
 
 ```
 "files.associations": {
-	"**/diagnostic_snapshot_*/log/*.log*": "pexip"
+	"**/diagnostic_snapshot_*/var/log/*.log*": "pexip"
 }
 ```
  
