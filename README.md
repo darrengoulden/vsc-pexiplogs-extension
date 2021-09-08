@@ -2,7 +2,7 @@
 
 VSCode extension for Pexip log syntax highlighting.  
  
-Made for the `Dark+` VSC theme, highlighting will work in other themes but it won't be as optimised.
+Made for the `Dark+` VSC theme, in other themes you may find that there is only partial highlighting.
 
 ## Install  
 
