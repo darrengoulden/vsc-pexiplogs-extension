@@ -1,4 +1,4 @@
-# Pexip Log Syntax for VSCode
+# Pexip log syntax highlighting for VSCode
 
 VSCode extension for Pexip log syntax highlighting.  
  
