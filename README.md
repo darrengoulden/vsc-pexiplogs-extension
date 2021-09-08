@@ -27,4 +27,4 @@ Grab the latest VSIX from the [releases](https://github.com/darrengoulden/vsc-pe
 ## Release Notes  
 
 * 0.0.2: Pattern match additions
-* 0.0.1: Minor Release, Commit Message: Initial Commit and Build.
+* 0.0.1: Minor Release
