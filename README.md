@@ -9,7 +9,7 @@ Made for the `Dark+` VSC theme, in other themes you may find that there is only 
 Update `settings.json` 
 
 1. Open the Settings editor from the Command Palette (⇧⌘P or Ctrl+Shift+P) with Preferences: Open Settings (JSON)
-2. Add the below (additionally, you can customise it to suit your environment)
+2. Add the below (you can also customise it to suit your environment)
 3. Save 
 
 ```
