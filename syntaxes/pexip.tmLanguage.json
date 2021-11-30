@@ -35,7 +35,7 @@
 			"patterns": [
 				{
 					"name": "entity.other.attribute-name.pexip.dbsummary.platformversion",
-					"match": "^Platform\\sVersion:\\s(\\d{1,2}(\\.\\d{1}\\.\\d{1})?\\s\\(\\d{5}\\.\\d\\.\\d\\)$)",
+					"match": "^Platform\\sVersion:\\s(\\d{1,2}(\\.\\d{1})?(\\.\\d{1}\\.\\d{1})?\\s\(\\d{5}\\.\\d\\.\\d\\)$)",
 					"captures": {
 						"1": {
 							"name": "string.pexip.dbsummary.platformversion"
@@ -173,16 +173,34 @@
 					"match": "^Overflow:\\s((.*?)$)",
 					"captures": {
 						"1": {
-							"name": "string.pexip.dbsummary.managementnode.overflow"
+							"name": "string.pexip.dbsummary.overflow"
 						}
 					}
 				},
 				{
-					"name": "entity.other.attribute-name.pexip.dbsummary.overflow",
-					"match": "^(SIP\\sProxy|H323\\sGatekeeper|Policy\\sProfile|Event\\sSinks|MSSIP\\sProxy|TURN\\sServer|Client\\sSTUN\\sServers)(\\s+)?\\:(.*?)$",
+					"name": "entity.other.attribute-name.pexip.dbsummary.transcoding",
+					"match": "^Transcoding\\sLocation:\\s((.*?)$)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.dbsummary.transcoding"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.dbsummary.call.control.servers",
+					"match": "^(SIP\\sProxy|H323\\sGatekeeper|Policy\\sProfile|Event\\sSinks|MSSIP\\sProxy|TURN\\sServer|Client\\sSTUN\\sServers|STUN\\sServer)(\\s+)?\\:(.*?)$",
 					"captures": {
 						"3": {
-							"name": "string.pexip.dbsummary.managementnode.overflow"
+							"name": "string.pexip.dbsummary.call.control.servers"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.dbsummary.qos",
+					"match": "^QoS:\\s(\\d{1,2})\\s\\(.*\\)\\,\\s(\\d{1,2})\\s\\(.*\\)$",
+					"captures": {
+						"3": {
+							"name": "string.pexip.dbsummary.qos"
 						}
 					}
 				},
