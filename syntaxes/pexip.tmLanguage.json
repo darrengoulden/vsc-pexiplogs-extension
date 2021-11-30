@@ -35,7 +35,7 @@
 			"patterns": [
 				{
 					"name": "entity.other.attribute-name.pexip.dbsummary.platformversion",
-					"match": "^Platform\\sVersion:\\s(\\d{1,2}(\\.\\d{1})?(\\.\\d{1}\\.\\d{1})?\\s\(\\d{5}\\.\\d\\.\\d\\)$)",
+					"match": "^Platform\\sVersion:\\s(\\d{1,2}(\\.\\d{1})?(\\.\\d{1}\\.\\d{1})?\\s\\(\\d{5}\\.\\d\\.\\d\\)$)",
 					"captures": {
 						"1": {
 							"name": "string.pexip.dbsummary.platformversion"
@@ -199,7 +199,10 @@
 					"name": "entity.other.attribute-name.pexip.dbsummary.qos",
 					"match": "^QoS:\\s(\\d{1,2})\\s\\(.*\\)\\,\\s(\\d{1,2})\\s\\(.*\\)$",
 					"captures": {
-						"3": {
+						"1": {
+							"name": "string.pexip.dbsummary.qos"
+						},
+						"2": {
 							"name": "string.pexip.dbsummary.qos"
 						}
 					}
