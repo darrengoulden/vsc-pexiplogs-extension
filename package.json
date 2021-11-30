@@ -1,6 +1,6 @@
 {
     "name": "vsc-pexiplogs-extension",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "pexip-support",
     "engines": {
         "vscode": "^1.59.0"
