@@ -276,7 +276,7 @@
 			"patterns": [
 				{
 					"name": "string.pexip.logreader.header.callid",
-					"match": "^Call-ID:(.*?)$",
+					"match": "^Call-[iI][dD]:(.*?)$",
 					"captures": {
 						"1": {
 							"name": "keyword.control.pexip.logreader.header.callid"
@@ -780,7 +780,7 @@
 							"end": "\\s|$"
 						},
 						{
-							"begin": "(Call-id=\")(.*?)(\")",
+							"begin": "(Call-[iI][dD]=\")(.*?)(\")",
 							"beginCaptures": {
 								"1": {
 									"name": "variable.parameter.regexp.pexip.administrator.conference.call-id"
@@ -798,13 +798,13 @@
 							"begin": "(Detail=\")(.*?)(\")",
 							"beginCaptures": {
 								"1": {
-									"name": "keyword.control.pexip.administrator.conference.call-id"
+									"name": "keyword.control.pexip.administrator.conference.detail"
 								},
 								"2": {
-									"name": "entity.name.type.pexip.administrator.conference.call-id"
+									"name": "entity.name.type.pexip.administrator.conference.detail"
 								},
 								"3": {
-									"name": "keyword.control.pexip.administrator.conference.call-id"
+									"name": "keyword.control.pexip.administrator.conference.detail"
 								}
 							},
 							"end": "\\s|$"
@@ -813,13 +813,13 @@
 							"begin": "(Reason=\")(.*?)(\")",
 							"beginCaptures": {
 								"1": {
-									"name": "entity.name.type.pexip.administrator.conference.call-id"
+									"name": "entity.name.type.pexip.administrator.conference.reason"
 								},
 								"2": {
-									"name": "keyword.control.pexip.administrator.conference.call-id"
+									"name": "keyword.control.pexip.administrator.conference.reason"
 								},
 								"3": {
-									"name": "entity.name.type.pexip.administrator.conference.call-id"
+									"name": "entity.name.type.pexip.administrator.conference.reason"
 								}
 							},
 							"end": "\\s|$"
@@ -988,7 +988,7 @@
 				},
 				{
 					"name": "string.pexip.logs.call-id.user-agent",
-					"match": "(?i)(Call-ID:|User-Agent:|Remote Vendor:)\\s(?:[\\d\\,\/\\(\\)\\.\\;\\:]*[a-zA-Z]*[a-zA-Z\\d\\,\/\\(\\)\\.\\s\\-\\_\\;\\:@]*)",
+					"match": "(?i)(Call-[iI][dD]:|User-Agent:|Remote Vendor:)\\s(?:[\\d\\,\/\\(\\)\\.\\;\\:]*[a-zA-Z]*[a-zA-Z\\d\\,\/\\(\\)\\.\\s\\-\\_\\;\\:@]*)",
 					"captures": {
 						"1": {
 							"name": "keyword.control.pexip.logs.callid.user.agent"
