@@ -169,6 +169,15 @@
 					}
 				},
 				{
+					"name": "entity.other.attribute-name.pexip.dbsummary.mtu",
+					"match": "^(MTU)\\:\\s((.*?)$)",
+					"captures": {
+						"2": {
+							"name": "string.pexip.dbsummary.managementnode.mtu"
+						}
+					}
+				},
+				{
 					"name": "entity.other.attribute-name.pexip.dbsummary.overflow",
 					"match": "^Overflow:\\s((.*?)$)",
 					"captures": {
@@ -188,7 +197,7 @@
 				},
 				{
 					"name": "entity.other.attribute-name.pexip.dbsummary.call.control.servers",
-					"match": "^(SIP\\sProxy|H323\\sGatekeeper|Policy\\sProfile|Event\\sSinks|MSSIP\\sProxy|TURN\\sServer|Client\\sSTUN\\sServers|STUN\\sServer)(\\s+)?\\:(.*?)$",
+					"match": "^(SIP\\sProxy|H323\\sGatekeeper|Policy\\sProfile|Event\\sSinks|MSSIP\\sProxy|TURN\\sServer|Client\\sSTUN\\sServers|STUN\\sServer|System\\sTuneables|HTTP\\sProxy)(\\s+)?\\:(.*?)$",
 					"captures": {
 						"3": {
 							"name": "string.pexip.dbsummary.call.control.servers"
