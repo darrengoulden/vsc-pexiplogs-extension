@@ -197,7 +197,7 @@
 				},
 				{
 					"name": "entity.other.attribute-name.pexip.dbsummary.call.control.servers",
-					"match": "^(SIP\\sProxy|H323\\sGatekeeper|Policy\\sProfile|Event\\sSinks|MSSIP\\sProxy|TURN\\sServer|Client\\sSTUN\\sServers|STUN\\sServer|System\\sTuneables|HTTP\\sProxy)(\\s+)?\\:(.*?)$",
+					"match": "^(SIP\\sProxy|H323\\sGatekeeper|Policy\\sProfile|Event\\sSinks|MSSIP\\sProxy|TURN\\sServer|Client\\sSTUN\\sServers|STUN\\sServer|HTTP\\sProxy)(\\s+)?\\:(.*?)$",
 					"captures": {
 						"3": {
 							"name": "string.pexip.dbsummary.call.control.servers"
@@ -218,7 +218,7 @@
 				},
 				{
 					"name": "entity.other.attribute-name.pexip.logs.dbsummary.licenses",
-					"match": "^Node\\sIssues|Other\\sIssues|Alarms\\s\\(excluding\\sconnectivity\\)|Gateway\\sRules|Licenses$"
+					"match": "^Node\\sIssues|Other\\sIssues|Alarms\\s\\(excluding\\sconnectivity\\)|Gateway\\sRules|System\\sTuneables|Licenses$"
 				}
 			]
 		},
