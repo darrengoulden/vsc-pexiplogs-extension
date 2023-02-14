@@ -305,6 +305,14 @@
 				{
 					"name": "entity.other.attribute-name.pexip.logs.mjxsummary.headings",
 					"match": "^OTJ\\sEndpoint\\sStatus|OTJ\\sMeetings|Meeting\\sProcessing\\sRules\\s\\(Sorted\\sby\\spriority\\)|Potential\\sConfiguration\\sIssues|Active\\salarms\\s\\(MJX\\)$"
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.logs.webapps.headings",
+					"match": "^Webapp\\sPaths|Webapp\\sBranding|Webapp\\sSoftware\\sBundles|Webapp\\sSoftware\\sBundle\\sSelected\\sRevisions$"
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.logs.hitcounter.headings",
+					"match": "^Conferences\\sper\\sgateway\\srouting\\srule\\ssince\\s.*$"
 				}
 			]
 		},
