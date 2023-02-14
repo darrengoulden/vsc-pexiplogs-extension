@@ -142,6 +142,33 @@
 					}
 				},
 				{
+					"name": "entity.other.attribute-name.pexip.dbsummary.disabled_protocols",
+					"match": "^Disabled protocols:\\s((.*?)$)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.dbsummary.disabled_protocols"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.dbsummary.client_turn_servers",
+					"match": "^Client TURN Servers:\\s((.*?)$)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.dbsummary.client_turn_servers"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.dbsummary.turn443",
+					"match": "^TURN443:\\s((.*?)$)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.dbsummary.turn443"
+						}
+					}
+				},
+				{
 					"name": "entity.other.attribute-name.pexip.dbsummary.codecs.false",
 					"match": "^Disabled\\scodecs:\\s((.*?)$)",
 					"captures": {
@@ -218,7 +245,7 @@
 				},
 				{
 					"name": "entity.other.attribute-name.pexip.logs.dbsummary.licenses",
-					"match": "^Node\\sIssues|Other\\sIssues|Alarms\\s\\(excluding\\sconnectivity\\)|Gateway\\sRules|System\\sTuneables|Licenses$"
+					"match": "^Node\\sIssues|Other\\sIssues|Alarms\\s\\(excluding\\sconnectivity\\)|Gateway\\sRules|System\\sTuneables|TLS\\sCertificates|Licenses$"
 				}
 			]
 		},
