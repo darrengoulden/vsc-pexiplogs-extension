@@ -26,6 +26,8 @@ Grab the latest VSIX from the [releases](https://github.com/darrengoulden/vsc-pe
 
 ## Release Notes  
 
+* 0.0.6: Pattern match additions
+* 0.0.5: Pattern match additions
 * 0.0.4: Update strings for Kebab-Case (per https://docs.pexip.com/admin/whats_new.htm#other or https://docs.pexip.com/v29/admin/whats_new.htm#other)
 * 0.0.3: Pattern match additions
 * 0.0.2: Pattern match additions
