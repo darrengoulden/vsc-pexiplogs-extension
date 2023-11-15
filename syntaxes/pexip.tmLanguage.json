@@ -187,6 +187,15 @@
 					}
 				},
 				{
+					"name": "entity.other.attribute-name.pexip.dbsummary.debug.logs",
+					"match": "^Logs\\sset\\sto\\sdebug:\\s((.*?)$)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.dbsummary.debug.logs"
+						}
+					}
+				},
+				{
 					"name": "entity.other.attribute-name.pexip.dbsummary.dns.or.ntp",
 					"match": "^(DNS|NTP)\\:\\s((.*?)$)",
 					"captures": {
