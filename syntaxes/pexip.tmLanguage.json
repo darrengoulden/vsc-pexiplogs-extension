@@ -205,6 +205,15 @@
 					}
 				},
 				{
+					"name": "entity.other.attribute-name.pexip.dbsummary.syslogs",
+					"match": "^(Syslog\\sServers)\\:\\s((.*?)$)",
+					"captures": {
+						"2": {
+							"name": "string.pexip.dbsummary.managementnode.syslogs"
+						}
+					}
+				},
+				{
 					"name": "entity.other.attribute-name.pexip.dbsummary.mtu",
 					"match": "^(MTU)\\:\\s((.*?)$)",
 					"captures": {
