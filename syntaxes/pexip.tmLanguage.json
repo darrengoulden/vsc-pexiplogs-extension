@@ -12,6 +12,12 @@
 			"include": "#logreader"
 		},
 		{
+			"include": "#pexauthconfig"
+		},
+		{
+			"include": "#pexidpconfig"
+		},
+		{
 			"include": "#generic"
 		},
 		{
@@ -35,10 +41,16 @@
 			"patterns": [
 				{
 					"name": "entity.other.attribute-name.pexip.dbsummary.platformversion",
-					"match": "^Platform\\sVersion:\\s(\\d{1,2}(\\.\\d{1})?(\\.\\d{1}\\.\\d{1})?\\s\\(\\d{5}\\.\\d\\.\\d\\)$)",
+					"match": "^Platform\\sVersion:\\s(\\d{1,2}(\\.\\d{1})?(\\.\\d{1}\\.\\d{1})?\\s(\\()\\d{5}\\.\\d\\.\\d(\\))$)",
 					"captures": {
 						"1": {
 							"name": "string.pexip.dbsummary.platformversion"
+						},
+						"4": {
+							"name": "entity.other.attribute-name.dbsummary.platformversion"
+						},
+						"5": {
+							"name": "entity.other.attribute-name.dbsummary.platformversion"
 						}
 					}
 				},
@@ -196,6 +208,21 @@
 					}
 				},
 				{
+					"name": "entity.other.attribute-name.pexip.dbsummary.webapp.path",
+					"match": "^Default\\swebapp:\\s(\/.+)\\s((\\().*(\\)))$",
+					"captures": {
+						"1": {
+							"name": "string.pexip.dbsummary.webapp.path"
+						},
+						"2": {
+							"name": "entity.other.attribute-name.dbsummary.webapp.path"
+						},
+						"3": {
+							"name": "entity.other.attribute-name.dbsummary.webapp.path"
+						}
+					}
+				},
+				{
 					"name": "entity.other.attribute-name.pexip.dbsummary.dns.or.ntp",
 					"match": "^(DNS|NTP)\\:\\s((.*?)$)",
 					"captures": {
@@ -342,6 +369,15 @@
 					"captures": {
 						"1": {
 							"name": "keyword.control.pexip.logreader.header.callid"
+						}
+					}
+				},
+				{
+					"name": "string.pexip.logreader.header.conversationid",
+					"match": "^Conversation-[iI][dD]:(.*?)$",
+					"captures": {
+						"1": {
+							"name": "keyword.control.pexip.logreader.header.conversationid"
 						}
 					}
 				},
@@ -780,6 +816,1044 @@
 				{
 					"name": "string.regexp.pexip.logreader.request.pending",
 					"match": "491\\sRequest\\sPending"
+				}
+			]
+		},
+		"pexauthconfig": {
+			"patterns": [
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.auth_source",
+					"match": "^Authentication\\ssource:(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.auth_source"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.require_client_cert",
+					"match": "^Require\\sclient\\scertificate:(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.require_client_cert"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.access_token_expiration",
+					"match": "^Access\\stoken\\sexpiration:\\s(\\d{1,5})\\sseconds",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.access_token_expiration"
+						},
+						"2": {
+							"name": "entity.other.attribute-name.pexauthconfig.access_token_expiration"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.disable_basic_authentication",
+					"match": "^Disable\\sbasic\\sauthentication:(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.disable_basic_authentication"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.allow_all_permissions",
+					"match": "^Allow\\sall\\spermissions:(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.allow_all_permissions"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.ldap_server",
+					"match": "^LDAP\\sserver:(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.ldap_server"
+						},
+						"2": {
+							"name": "entity.other.attribute-name.pexauthconfig.ldap_server"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.ldap_bind_username",
+					"match": "^LDAP\\sbind\\susername:(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.ldap_bind_username"
+						},
+						"2": {
+							"name": "entity.other.attribute-name.pexauthconfig.ldap_bind_username"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.ldap_bind_password",
+					"match": "^LDAP\\sbind\\spassword:(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.ldap_bind_password"
+						},
+						"2": {
+							"name": "entity.other.attribute-name.pexauthconfig.ldap_bind_password"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.ldap_base_dn",
+					"match": "^LDAP\\sbase\\sDN:(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.ldap_base_dn"
+						},
+						"2": {
+							"name": "entity.other.attribute-name.pexauthconfig.ldap_base_dn"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.allow_insecure_transport",
+					"match": "^Allow\\sinsecure\\stransport\\s(\\()no TLS(\\)):(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.allow_insecure_transport"
+						},
+						"2": {
+							"name": "string.pexip.pexauthconfig.allow_insecure_transport"
+						},
+						"3": {
+							"name": "string.pexip.pexauthconfig.allow_insecure_transport"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.search_global_catalog",
+					"match": "^Search\\sglobal\\scatalog:(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.search_global_catalog"
+						},
+						"2": {
+							"name": "entity.other.attribute-name.pexauthconfig.search_global_catalog"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.ldap_user_search_dn",
+					"match": "^LDAP\\suser\\ssearch\\sDN:(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.ldap_user_search_dn"
+						},
+						"2": {
+							"name": "entity.other.attribute-name.pexauthconfig.ldap_user_search_dn"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.ldap_user_filter",
+					"match": "^LDAP\\suser\\sfilter:(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.ldap_user_filter"
+						},
+						"2": {
+							"name": "entity.other.attribute-name.pexauthconfig.ldap_user_filter"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.ldap_user_search_filter",
+					"match": "^LDAP\\suser\\ssearch\\sfilter:(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.ldap_user_search_filter"
+						},
+						"2": {
+							"name": "entity.other.attribute-name.pexauthconfig.ldap_user_search_filter"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.ldap_user_group_attributes",
+					"match": "^LDAP\\suser\\sgroup\\sattributes:(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.ldap_user_group_attributes"
+						},
+						"2": {
+							"name": "entity.other.attribute-name.pexauthconfig.ldap_user_group_attributes"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.ldap_group_search_dn",
+					"match": "^LDAP\\sgroup\\ssearch\\sDN:(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.ldap_group_search_dn"
+						},
+						"2": {
+							"name": "entity.other.attribute-name.pexauthconfig.ldap_group_search_dn"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.ldap_group_filter",
+					"match": "^LDAP\\sgroup\\sfilter:(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.ldap_group_filter"
+						},
+						"2": {
+							"name": "entity.other.attribute-name.pexauthconfig.ldap_group_filter"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.ldap_group_membership_filter",
+					"match": "^LDAP\\sgroup\\smembership\\sfilter:(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.ldap_group_membership_filter"
+						},
+						"2": {
+							"name": "entity.other.attribute-name.pexauthconfig.ldap_group_membership_filter"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.ldap_role_mappings",
+					"match": "^(#\\d{1,2})\\sLDAP\\sgroup\\sDN:\\s(.+),\\sName:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "constant.sha.git-rebase.pexauthconfig.ldap_role_mappings"
+						},
+						"2": {
+							"name": "string.pexip.pexauthconfig.ldap_role_mappings"
+						},
+						"3": {
+							"name": "string.pexip.pexauthconfig.ldap_role_mappings"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.ldap_role_mappings_roles",
+					"match": "Administrator\\sroles:(.+)",
+					"captures": {
+						"1": {
+							"name": "constant.sha.git-rebase.pexauthconfig.ldap_role_mappings_roles"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.ldap_role_mappings_oidc",
+					"match": "^(#\\d{1,5})\\sName:\\s(.+),\\sSource:\\s(.+)\\s\\((.+)\\)",
+					"captures": {
+						"1": {
+							"name": "constant.sha.git-rebase.pexauthconfig.ldap_role_mappings_oidc"
+						},
+						"2": {
+							"name": "string.pexip.pexauthconfig.ldap_role_mappings_oidc"
+						},
+						"3": {
+							"name": "string.pexip.pexauthconfig.ldap_role_mappings_oidc"
+						},
+						"4": {
+							"name": "string.pexip.pexauthconfig.ldap_role_mappings_oidc"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_client",
+					"match": "^OAuth2\\sclient\\s(#\\d{1,5}):\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "constant.sha.git-rebase.pexauthconfig.oauth2_client"
+						},
+						"2": {
+							"name": "string.pexip.pexauthconfig.oauth2_client"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_client_id",
+					"match": "Client\\sID:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_client_id"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_client_admin_role",
+					"match": "Administrator\\srole:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "constant.sha.git-rebase.pexauthconfig.oauth2_client_admin_role"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_client_ldap_group_dn",
+					"match": "LDAP\\sgroup\\sdn:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_client_ldap_group_dn"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_client",
+					"match": "^OAuth2\\sclient\\s(#\\d{1,5}):\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_client"
+						},
+						"2": {
+							"name": "string.pexip.pexauthconfig.oauth2_client"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_tokens",
+					"match": "^OAuth2\\stoken\\s(#\\d{1,5}):\\s(.+)\\s\\(ID:\\s(.*)\\)",
+					"captures": {
+						"1": {
+							"name": "constant.sha.git-rebase.pexauthconfig.oauth2_tokens"
+						},
+						"2": {
+							"name": "string.pexip.pexauthconfig.oauth2_tokens"
+						},
+						"3": {
+							"name": "string.pexip.pexauthconfig.oauth2_tokens"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_tokens_type",
+					"match": "Token\\stype:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_tokens_type"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_tokens_scope",
+					"match": "Scope:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_tokens_scope"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_tokens_issued",
+					"match": "Issued\\sat:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_tokens_issued"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_tokens_expires",
+					"match": "Expires\\sat:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_tokens_expires"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_tokens_access_token",
+					"match": "Access\\stoken:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_tokens_access_token"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_url",
+					"match": "^Metadata\\sURL:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_url"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_auth_url",
+					"match": "^Authorize\\sURL:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_auth_url"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_token_ep_url",
+					"match": "^Token\\sendpoint\\sURL:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_token_ep_url"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_auth_method",
+					"match": "^Authentication\\smethod:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_auth_method"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_scope",
+					"match": "^Scope:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_scope"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_username",
+					"match": "^Username\\sfield:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_username"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_groups_field",
+					"match": "^Groups\\sfield:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_groups_field"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_token_ep",
+					"match": "^Token\\sendpoint:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_token_ep"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_token_ep_auth_methods",
+					"match": "^Token\\sendpoint\\sauth\\smethods\\ssupported:\\s\\[(.+)\\]",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_token_ep_auth_methods"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_token_ep_auth_methods",
+					"match": "^Token\\sendpoint\\sauth\\smethods\\ssupported:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_token_ep_auth_methods"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_jwks_uri",
+					"match": "^JWKS\\sURI:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_jwks_uri"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_reponse_modes_supp",
+					"match": "^Response\\smodes\\ssupported:\\s\\[(.+)\\]",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_reponse_modes_supp"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_subject_types",
+					"match": "^Subject\\stypes\\ssupported:\\s\\[(.+)\\]",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_subject_types"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_id_token_signing_alg_values",
+					"match": "^ID\\stoken\\ssigning\\salg\\svalues\\ssupported:\\s\\[(.+)\\]",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_id_token_signing_alg_values"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_response_types_supported",
+					"match": "^Response\\stypes\\ssupported:\\s\\[(.+)\\]",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_response_types_supported"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_supported_scopes",
+					"match": "^Supported\\sscopes:\\s\\[(.+)\\]",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_supported_scopes"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_issuer",
+					"match": "^Issuer:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_issuer"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_request_uri_params",
+					"match": "^Request\\sURI\\sparameter\\ssupported:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_request_uri_params"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_user_into_ep",
+					"match": "^User\\sinfo\\sendpoint:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_user_into_ep"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_auth_endpoint",
+					"match": "^Authorization\\sendpoint:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_auth_endpoint"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_device_auth_endpoin",
+					"match": "^Device\\sauthorization\\sendpoint:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_device_auth_endpoin"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_http_logout_supported",
+					"match": "^HTTP\\slogout\\ssupported:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_http_logout_supported"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_front_channel_logout_supported",
+					"match": "^Front\\schannel\\slogout\\ssupported:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_front_channel_logout_supported"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_claim_supported",
+					"match": "^Claims\\ssupported:\\s\\[(.+)\\]",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_claim_supported"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_kerbs_endpoint",
+					"match": "^Kerberos\\sendpoint:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_kerbs_endpoint"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_tenant_region_scope",
+					"match": "^Tenant\\sregion\\sscope:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_tenant_region_scope"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_cloud_instance_name",
+					"match": "^Cloud\\sinstance\\sname:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_cloud_instance_name"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_cloud_graph_hostname",
+					"match": "^Cloud\\sgraph\\shostname:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_cloud_graph_hostname"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_micros_graph_uri",
+					"match": "^Microsoft\\sGraph\\sURI:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_micros_graph_uri"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_rbac_url",
+					"match": "^RBAC\\sURL:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_rbac_url"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.oauth2_metadata_end_session_endpoint",
+					"match": "^End\\ssession\\sendpoint:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.oauth2_metadata_end_session_endpoint"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.admin_role_config_perms",
+					"match": "Permissions\\s\\(\\d{1,2}\\):(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.admin_role_config_perms"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.admin_role_config",
+					"match": "^Administrator\\srole\\s(#\\d{1,2}):\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "string.pexip.pexauthconfig.admin_role_config"
+						},
+						"2": {
+							"name": "constant.sha.git-rebase.pexauthconfig.admin_role_config"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.issues_one",
+					"match": "^No\\sLDAP\\suser\\ssearch\\sDN\\sconfigured"
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.issues_two",
+					"match": "^No\\sLDAP\\sgroup\\ssearch\\sDN\\sconfigured"
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexauthconfig.issues_three",
+					"match": "^No\\sLDAP\\sbase\\sDN\\sconfigured"
+				}
+			]
+		},
+		"pexidpconfig": {
+			"patterns": [
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp1",
+					"match": "^Identity\\sProvider\\s(#\\d{1,5})\\s-\\s(.+)\\s\\((.+)\\)$",
+					"captures": {
+						"1": {
+							"name": "constant.sha.git-rebase.pexip.pexidpconfig.idp"
+						},
+						"2": {
+							"name": "constant.sha.git-rebase.pexip.pexidpconfig.idp"
+						},
+						"3": {
+							"name": "string.pexip.pexidpconfig.idp"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp2",
+					"match": "^Identity\\sProvider\\s(#\\d{1,5})\\s-\\s(.+)$",
+					"captures": {
+						"1": {
+							"name": "constant.sha.git-rebase.pexip.pexidpconfig.idp2"
+						},
+						"2": {
+							"name": "constant.sha.git-rebase.pexip.pexidpconfig.idp2"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_groups",
+					"match": "^Identity\\sProvider\\sGroups"
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_groups_base1",
+					"match": "^(>) Identity\\sProvider\\sGroup\\s(#\\d{1,5})\\s-\\s(.+)\\s\\((.+)\\)$",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_groups_base1"
+						},
+						"2": {
+							"name": "constant.sha.git-rebase.pexip.pexidpconfig.idp_groups_base1"
+						},
+						"3": {
+							"name": "constant.sha.git-rebase.pexip.pexidpconfig.idp_groups_base1"
+						},
+						"4": {
+							"name": "string.pexip.pexidpconfig.idp_groups_base1"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_groups_base2",
+					"match": "^(>) Identity\\sProvider\\sGroup\\s(#\\d{1,5})\\s-\\s(.+)$",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_groups_base2"
+						},
+						"2": {
+							"name": "constant.sha.git-rebase.pexip.pexidpconfig.idp_groups_base2"
+						},
+						"3": {
+							"name": "constant.sha.git-rebase.pexip.pexidpconfig.idp_groups_base2"
+						},
+						"4": {
+							"name": "string.pexip.pexidpconfig.idp_groups_base2"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_groups_providers",
+					"match": "(-)\\sIdentity\\sProviders\\s\\((\\d{1,2})\\):\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_groups_providers"
+						},
+						"2": {
+							"name": "constant.sha.git-rebase.pexip.pexidpconfig.idp_groups_providers"
+						},
+						"3": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_groups_providers"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_groups_configured_services",
+					"match": "(-)\\sConfigured\\sServices\\s\\((\\d{1,2})\\):\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_groups_configured_services"
+						},
+						"2": {
+							"name": "constant.sha.git-rebase.pexip.pexidpconfig.idp_groups_configured_services"
+						},
+						"3": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_groups_configured_services"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_service_config",
+					"match": "^(>)\\sService\\sConfiguration",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_service_config"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_additional_redirects",
+					"match": "^(>)\\sAdditional\\sredirect\\sURLs\\s\\((\\d{1,2})\\):",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_additional_redirects"
+						},
+						"2": {
+							"name": "constant.sha.git-rebase.pexip.pexidpconfig.idp_additional_redirects"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration",
+					"match": "^(>)\\sIdentity\\sProvider\\sConfiguration",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_attributes",
+					"match": "^(>)\\sAttributes\\s\\((\\d{1,2})\\):\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_attributes"
+						},
+						"2": {
+							"name": "constant.sha.git-rebase.pexip.pexidpconfig.idp_attributes"
+						},
+						"3": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_attributes"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_type",
+					"match": "(-)\\sType:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_type"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_type"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_UUID",
+					"match": "(-)\\sUUID:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_UUID"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_UUID"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_redirect_url",
+					"match": "(-)\\sRedirect\\sURL:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_redirect_url"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_redirect_url"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_saml_entity_id",
+					"match": "(-)\\sSAML\\s2.0\\sentity\\sID:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_saml_entity_id"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_saml_entity_id"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_sig_alg",
+					"match": "(-)\\sSignature\\salgorithm:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_sig_alg"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_sig_alg"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_dig_alg",
+					"match": "(-)\\sDigest\\salgorithm:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_dig_alg"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_dig_alg"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_sso_url",
+					"match": "(-)\\sSSO\\sURL:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_sso_url"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_sso_url"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_entity_id",
+					"match": "(-)\\sEntity\\sID:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_entity_id"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_entity_id"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_display_name_att",
+					"match": "(-)\\sDisplay\\sname\\sattribute:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_display_name_att"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_display_name_att"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_oidc_flow",
+					"match": "(-)\\sOIDC\\sflow:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_oidc_flow"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_oidc_flow"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_oidc_client_id",
+					"match": "(-)\\sOIDC\\sclient\\sID:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_oidc_client_id"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_oidc_client_id"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_oidc_token_endpoint_auth_type",
+					"match": "(-)\\sOIDC\\stoken\\sendpoint\\sauth\\stype:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_oidc_token_endpoint_auth_type"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_oidc_token_endpoint_auth_type"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_oidc_token_sign_scheme",
+					"match": "(-)\\sOIDC\\stoken\\ssignature\\sscheme:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_oidc_token_sign_scheme"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_oidc_token_sign_scheme"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_oidc_user_info_ep",
+					"match": "(-)\\sOIDC\\suser\\sinfo\\sendpoint\\sURL:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_oidc_user_info_ep"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_oidc_user_info_ep"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_oidc_eidas",
+					"match": "(-)\\sOIDC\\sFrance\\sConnect\\srequired\\sEIDAS\\sLevel:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_oidc_eidas"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_oidc_eidas"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_oidc_token_ep_url",
+					"match": "(-)\\sOIDC\\stoken\\sendpoint\\sURL:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_oidc_token_ep_url"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_oidc_token_ep_url"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_oidc_jwks_url",
+					"match": "(-)\\sOIDC\\sJWKS\\sURL:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_oidc_jwks_url"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_oidc_jwks_url"
+						}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name.pexip.pexidpconfig.idp_configuration_oidc_display_name_claim",
+					"match": "(-)\\sOIDC\\sdisplay\\sname\\sclaim\\sname:\\s(.+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.label.pexip.pexidpconfig.idp_configuration_oidc_display_name_claim"
+						},
+						"2": {
+							"name": "string.pexip.pexidpconfig.idp_configuration_oidc_display_name_claim"
+						}
+					}
 				}
 			]
 		},
