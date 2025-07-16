@@ -290,7 +290,7 @@
 				},
 				{
 					"name": "entity.other.attribute-name.pexip.logs.dbsummary.licenses",
-					"match": "^Node\\sIssues|Other\\sIssues|Alarms\\s\\(excluding\\sconnectivity\\)|Gateway\\sRules|System\\sTuneables|TLS\\sCertificates|Licenses$"
+					"match": "^Node\\sIssues|Other\\sIssues|Alarms\\s\\(excluding\\sconnectivity\\)|Gateway\\sRules|System\\sTuneables|TLS\\sCertificates|Licenses|Security\\sWizard\\sChanges$"
 				}
 			]
 		},
