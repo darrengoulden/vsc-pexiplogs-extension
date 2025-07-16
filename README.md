@@ -26,6 +26,7 @@ Grab the latest VSIX from the [releases](https://github.com/darrengoulden/vsc-pe
 
 ## Release Notes  
 
+* 0.0.9: Pattern match additions
 * 0.0.8: Pattern match additions and add support for pexauth and pexidp
 * 0.0.7: Pattern match additions
 * 0.0.6: Pattern match additions
